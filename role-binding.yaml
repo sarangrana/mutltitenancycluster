@@ -1,0 +1,28 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: qa-rolebinding
+  namespace: qa
+subjects:
+- kind: ServiceAccount
+  name: sa-qa
+  namespace: qa
+roleRef:
+  kind: Role
+  name: qa-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: prod-rolebinding
+  namespace: qa
+subjects:
+- kind: ServiceAccount
+  name: sa-prod
+  namespace: qa
+roleRef:
+  kind: Role
+  name: prod-role
+  apiGroup: rbac.authorization.k8s.io
